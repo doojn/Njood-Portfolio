@@ -35,8 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
         },
         {
             id: 1,
-            title: "Work at Diriyah Art Futures",
-            description: "A showcase of my recent work and involvement at Diriyah Art Futures (DAF), focusing on new media and interactive arts.",
+            title: "This is all a big test",
+            description: "Interactive multimedia installation produced at Diriyah Art Futures (DAF), exploring new media, scale, and experimental systems.",
             imageUrl: "assets/daf_real.jpg",
             domain: "immersive"
         },

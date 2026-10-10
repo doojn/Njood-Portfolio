@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Shared projects array (in a real app, this would be fetched from a JSON file)
     const projects = [
         { id: 0, title: "compUsition (Senior Capstone)", description: "My defining senior thesis and capstone project. A dynamic video composition exploring visual rhythm, balance, and the intersection of media.", imageUrl: "assets/compusition_real.png", domain: "immersive" },
-        { id: 1, title: "Work at Diriyah Art Futures", description: "A showcase of my recent work and involvement at Diriyah Art Futures (DAF), focusing on new media and interactive arts.", imageUrl: "assets/daf_real.jpg", domain: "immersive" },
+        { id: 1, title: "This is all a big test", description: "Interactive multimedia installation produced at Diriyah Art Futures (DAF), exploring new media, scale, and experimental systems.", imageUrl: "assets/daf_real.jpg", domain: "immersive" },
         { id: 2, title: "Compromise", description: "Documentation of the artwork exploring physical-digital interaction and sensory space.", imageUrl: "assets/compromise_real.png", domain: "immersive" },
         { id: 3, title: "Void Tinted Glasses", description: "An experimental video piece emphasizing post-production sound design and visual editing.", imageUrl: "assets/void_real.png", domain: "animation" },
         { id: 4, title: "Consumption", description: "Video / Performance art exploring concepts that transcend verbal explanation.", imageUrl: "assets/simulation_real.png", domain: "immersive" },
