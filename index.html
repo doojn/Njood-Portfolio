@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njood Albawardi | Creative Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <nav class="navbar">
+        <div class="logo">Njood.</div>
+        <ul class="nav-links">
+            <li><a href="#work" class="hover-target">Works</a></li>
+            <li><a href="#about" class="hover-target">About</a></li>
+        </ul>
+    </nav>
+
+    <header class="hero">
+        <div class="doodle-container">
+            <svg class="doodle" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path fill="none" stroke="currentColor" stroke-width="2" d="M 40,100 C 40,40 160,40 160,100 C 160,160 40,160 40,100 C 40,70 100,70 100,100 C 100,130 140,130 140,100" />
+                <path fill="none" stroke="currentColor" stroke-width="1.5" d="M 20,80 C 20,20 180,20 180,80 C 180,140 20,140 20,80" />
+            </svg>
+        </div>
+        
+        <div class="hero-content">
+            <h1 class="giant-text">ALBAWARDI</h1>
+            <div class="marquee-container">
+                <div class="marquee">
+                    <span>3D PRINTING • TOUCHDESIGNER • PROJECTION MAPPING • CREATIVE CODING • ANIMATION • NEW MEDIA • </span>
+                    <span>3D PRINTING • TOUCHDESIGNER • PROJECTION MAPPING • CREATIVE CODING • ANIMATION • NEW MEDIA • </span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="about" class="section">
+            <div class="section-header fade-up">
+                <h2>The<br>Artist</h2>
+                <div class="about-grid">
+                    <div class="about-text" style="grid-column: 1 / -1; max-width: 900px;">
+                        <p class="lead-text" style="margin-bottom: 2rem;">I am a multidisciplinary artist driven purely by curiosity and the passion to explore and create.</p>
+                        <p>I aim to create pieces that inspire and spark discussion, drawing inspiration from the unknown and the vague, often utilizing new and alternative media. Beyond my artistic practice, I am deeply committed to education and community. I am an award-winning artist, recipient of the custom <strong>International Cultural Impact Award</strong>, and deeply involved with <strong>Diriyah Art Futures (DAF)</strong>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="work" class="section" style="padding-top: 2rem;">
+            <div class="section-header fade-up">
+                <h2>Selected<br>Works</h2>
+                <p class="section-desc">Divided into distinct domains of physical fabrication, immersive media, and animation.</p>
+            </div>
+
+            <div class="domain-section fade-up">
+                <h3 class="domain-title">New Media & Immersive</h3>
+                <div class="gallery masonry" id="gallery-immersive"></div>
+            </div>
+
+            <div class="domain-section fade-up">
+                <h3 class="domain-title">3D Printing & Fabrication</h3>
+                <div class="gallery masonry" id="gallery-fabrication"></div>
+            </div>
+
+            <div class="domain-section fade-up">
+                <h3 class="domain-title">Animation & Motion</h3>
+                <div class="gallery masonry" id="gallery-animation"></div>
+            </div>
+
+            <div class="domain-section fade-up">
+                <h3 class="domain-title">Documentation & Press</h3>
+                <div class="gallery masonry" id="gallery-press"></div>
+            </div>
+        </section>
+
+        <section id="workshops" class="section dark-section fade-up">
+            <h2 class="outline-text">Teaching</h2>
+            <div class="workshops-content">
+                <p class="lead-text">Offering hands-on workshops in digital tools, fabrication, and immersive arts. Extensively experienced through my time at VCU Libraries, Diriyah Art Futures, and as a student ambassador.</p>
+                <div class="workshop-tags">
+                    <span>3D Printing</span>
+                    <span>TouchDesigner</span>
+                    <span>Projection Mapping</span>
+                    <span>Creative Coding</span>
+                    <span>Adobe Portfolio</span>
+                    <span>Experimental Animation</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section fade-up" style="text-align: center; padding: 10rem 5%;">
+            <p style="font-size: 1.5rem; color: #a1a1aa; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 2px;">Let's Create Together</p>
+            <a href="mailto:hello@example.com" class="hover-target huge-link">Get in touch.</a>
+        </section>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
