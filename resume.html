@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njood F. Albawardi — CV / Resume (Artist & Educator)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        @page {
+            size: letter portrait;
+            margin: 0.5in 0.55in;
+        }
+
+        :root {
+            --primary: #1c0de2;
+            --dark: #0f1115;
+            --text-muted: #525866;
+            --line-color: #e4e7ec;
+            --bg-pill: #f4f5f8;
+            --font-sans: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            color: var(--dark);
+            background-color: #ffffff;
+            line-height: 1.35;
+            font-size: 9.5pt;
+            -webkit-print-color-adjust: exact;
+            print-color-adjust: exact;
+        }
+
+        .resume-container {
+            max-width: 8.5in;
+            margin: 0 auto;
+            padding: 0.4in 0.5in;
+        }
+
+        @media screen {
+            body {
+                background-color: #f0f2f5;
+                padding: 2rem 1rem;
+            }
+            .resume-container {
+                background: #ffffff;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+                border-radius: 4px;
+                min-height: 11in;
+            }
+            .print-btn-bar {
+                max-width: 8.5in;
+                margin: 0 auto 1.5rem auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .btn {
+                background: var(--primary);
+                color: white;
+                border: none;
+                padding: 0.6rem 1.4rem;
+                font-family: var(--font-sans);
+                font-weight: 600;
+                font-size: 0.95rem;
+                border-radius: 6px;
+                cursor: pointer;
+                text-decoration: none;
+                display: inline-flex;
+                align-items: center;
+                gap: 0.5rem;
+                box-shadow: 0 4px 12px rgba(28, 13, 226, 0.25);
+            }
+            .btn:hover {
+                background: #1408b8;
+            }
+        }
+
+        @media print {
+            .print-btn-bar {
+                display: none !important;
+            }
+            .resume-container {
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+
+        /* Header */
+        header {
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        h1.name {
+            font-size: 22pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .title-badge {
+            font-size: 11.5pt;
+            font-weight: 600;
+            color: var(--dark);
+            letter-spacing: 0.2px;
+        }
+
+        .contact-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 0.45rem;
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            font-family: var(--font-mono);
+        }
+
+        .contact-bar a {
+            color: inherit;
+            text-decoration: none;
+            border-bottom: 1px dotted #999;
+        }
+
+        .contact-bar a:hover {
+            color: var(--primary);
+            border-bottom-color: var(--primary);
+        }
+
+        /* Summary / Statement */
+        .statement-section {
+            margin-bottom: 1rem;
+            background: #fafbff;
+            border-left: 3px solid var(--primary);
+            padding: 0.65rem 0.85rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .statement-text {
+            font-size: 9.2pt;
+            line-height: 1.45;
+            color: #272a31;
+        }
+
+        /* Two-Column Grid */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 62% 35%;
+            gap: 3%;
+        }
+
+        /* Section Headings */
+        .section-title {
+            font-size: 10pt;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--primary);
+            border-bottom: 1px solid var(--line-color);
+            padding-bottom: 0.25rem;
+            margin-bottom: 0.65rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .section-block {
+            margin-bottom: 1.1rem;
+        }
+
+        /* Entry Items */
+        .entry {
+            margin-bottom: 0.85rem;
+        }
+
+        .entry-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.15rem;
+        }
+
+        .entry-title {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .entry-org {
+            font-size: 9pt;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .entry-date {
+            font-size: 8pt;
+            font-family: var(--font-mono);
+            color: var(--text-muted);
+            white-space: nowrap;
+        }
+
+        .entry-location {
+            font-size: 8pt;
+            color: var(--text-muted);
+            font-style: italic;
+        }
+
+        .bullets {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 0.3rem;
+        }
+
+        .bullets li {
+            position: relative;
+            padding-left: 1.1rem;
+            margin-bottom: 0.25rem;
+            font-size: 8.8pt;
+            line-height: 1.35;
+            color: #333742;
+        }
+
+        .bullets li::before {
+            content: '▪';
+            position: absolute;
+            left: 0.15rem;
+            color: var(--primary);
+            font-size: 8pt;
+            top: -0.05rem;
+        }
+
+        /* Right Column specific styles */
+        .edu-degree {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        .edu-inst {
+            font-size: 9pt;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .edu-meta {
+            font-size: 8.3pt;
+            color: var(--text-muted);
+            margin-top: 0.15rem;
+        }
+        .edu-gpa {
+            display: inline-block;
+            background: var(--bg-pill);
+            padding: 0.1rem 0.4rem;
+            border-radius: 3px;
+            font-family: var(--font-mono);
+            font-size: 7.8pt;
+            font-weight: 600;
+            color: var(--dark);
+            margin-top: 0.2rem;
+        }
+
+        /* Skills groups */
+        .skill-group {
+            margin-bottom: 0.65rem;
+        }
+        .skill-group-title {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: var(--dark);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.2rem;
+        }
+        .skill-items {
+            font-size: 8.5pt;
+            color: var(--text-muted);
+            line-height: 1.35;
+        }
+
+        /* Awards & Honors */
+        .award-item {
+            margin-bottom: 0.5rem;
+        }
+        .award-name {
+            font-weight: 600;
+            font-size: 8.8pt;
+            color: var(--dark);
+        }
+        .award-date {
+            font-size: 7.8pt;
+            font-family: var(--font-mono);
+            color: var(--primary);
+            font-weight: 600;
+        }
+        .award-desc {
+            font-size: 8pt;
+            color: var(--text-muted);
+        }
+
+        /* Core Selected Works / Exhibitions */
+        .work-item {
+            margin-bottom: 0.45rem;
+        }
+        .work-title {
+            font-weight: 600;
+            font-size: 8.7pt;
+            color: var(--dark);
+        }
+        .work-desc {
+            font-size: 8pt;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="print-btn-bar">
+        <a href="../portfolio_website/index.html" class="btn" style="background:#525866;">← Back to Portfolio</a>
+        <button onclick="window.print()" class="btn">🖨️ Print / Save as PDF</button>
+    </div>
+
+    <div class="resume-container">
+        <!-- Header -->
+        <header>
+            <div class="header-top">
+                <h1 class="name">Njood F. Albawardi</h1>
+                <div class="title-badge">Multidisciplinary Artist & Creative Technology Educator</div>
+            </div>
+            <div class="contact-bar">
+                <span>📍 Riyadh, Saudi Arabia</span>
+                <span>✉️ <a href="mailto:nj.albawardi@gmail.com">nj.albawardi@gmail.com</a></span>
+                <span>📱 +966 54 976 6226</span>
+                <span>🌐 <a href="https://doojn.github.io/portfolio/" target="_blank">doojn.github.io/portfolio</a></span>
+                <span>💼 <a href="https://linkedin.com/in/NjoodAlbawardi" target="_blank">linkedin.com/in/NjoodAlbawardi</a></span>
+            </div>
+        </header>
+
+        <!-- Academic / Pedagogical Statement -->
+        <section class="statement-section">
+            <p class="statement-text">
+                <strong>Multidisciplinary Artist and Educator</strong> bridging Kinetic Imaging, physical computing, and immersive new media. Experienced in instructional delivery and studio workshop facilitation across digital fabrication (3D printing, laser cutting), TouchDesigner, and interactive installations. Recognized with the <em>International Cultural Impact Award</em> and selected as Project Lead at Diriyah Art Futures (DAF). Dedicated to advancing Saudi Arabia's contemporary art pedagogy by empowering the next generation of women artists with technical fluency, critical inquiry, and fearless experimental practice.
+            </p>
+        </section>
+
+        <!-- Two Column Content -->
+        <div class="main-layout">
+            <!-- Left Column: Teaching, Artistic Production & Leadership -->
+            <div class="left-col">
+
+                <!-- Academic & Studio Teaching Experience -->
+                <div class="section-block">
+                    <h2 class="section-title">Academic & Workshop Teaching</h2>
+
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <span class="entry-title">Student Foreman & Creative Tech Educator</span><br>
+                                <span class="entry-org">VCU Libraries — The Workshop</span>
+                            </div>
+                            <div class="entry-date">Sep 2024 – May 2025</div>
+                        </div>
+                        <div class="entry-location">Richmond, VA, USA</div>
+                        <ul class="bullets">
+                            <li><strong>Designed & Delivered Hands-on Studio Workshops:</strong> Instructed undergraduate students and university faculty on 3D modeling for 3D printing, laser cutting, and digital fabrication workflows.</li>
+                            <li><strong>Pedagogical Studio Support:</strong> Mentored fine art and design students through iterative technical problem-solving, code debugging, and material prototyping.</li>
+                            <li><strong>Equipment & Studio Supervision:</strong> Maintained and calibrated digital fabrication machines, 3D printers, projection mapping rigs, and audio/video facilities.</li>
+                            <li><strong>Leadership Recognition:</strong> Received official offer to transition into Manager of The Workshop following proven teaching effectiveness and operational reliability.</li>
+                        </ul>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <span class="entry-title">Tech Lead & Curatorial Technician</span><br>
+                                <span class="entry-org">Kinetic Imaging Capstone Exhibition</span>
+                            </div>
+                            <div class="entry-date">Sep 2024 – May 2025</div>
+                        </div>
+                        <div class="entry-location">Richmond, VA, USA</div>
+                        <ul class="bullets">
+                            <li>Directed technical planning and spatial exhibition mapping for a multi-artist senior capstone thesis cohort.</li>
+                            <li>Coordinated hardware allocation, synchronized multichannel projection systems, and managed on-site spatial acoustics.</li>
+                            <li>Provided troubleshooting and creative support to artists, gallery curators, and university faculty during installation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Artistic Practice & Production Experience -->
+                <div class="section-block">
+                    <h2 class="section-title">Artistic Practice & Production Leadership</h2>
+
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <span class="entry-title">Emergent Artist & Project Lead</span><br>
+                                <span class="entry-org">Diriyah Art Futures (DAF)</span>
+                            </div>
+                            <div class="entry-date">Sep 2025 – Sep 2026</div>
+                        </div>
+                        <div class="entry-location">Riyadh, Saudi Arabia</div>
+                        <ul class="bullets">
+                            <li>Conceptualized and directed production of a large-scale interactive new media installation at Saudi Arabia's premier digital art institution.</li>
+                            <li>Orchestrated multidisciplinary technical, fabrication, and spatial integration teams from initial concept to public exhibition.</li>
+                            <li>Presented technical methodologies, research documentation, and critical conceptual frameworks to international curators and institutional stakeholders.</li>
+                        </ul>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <span class="entry-title">Media Production Intern</span><br>
+                                <span class="entry-org">Institute for Contemporary Art (ICA at VCU)</span>
+                            </div>
+                            <div class="entry-date">Sep 2024 – Dec 2024</div>
+                        </div>
+                        <div class="entry-location">Community Media Center, Richmond, VA, USA</div>
+                        <ul class="bullets">
+                            <li>Documented major museum exhibitions, international artist lectures, and community engagement public programming.</li>
+                            <li>Produced audiovisual and digital media assets for museum dissemination, educational archives, and community outreach.</li>
+                        </ul>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-header">
+                            <div>
+                                <span class="entry-title">Lead Documentarian</span><br>
+                                <span class="entry-org">VCU Community Engagement Story Exchange</span>
+                            </div>
+                            <div class="entry-date">Sep 2024 – Dec 2024</div>
+                        </div>
+                        <ul class="bullets">
+                            <li>Spearheaded digital documentation for participatory storytelling workshops involving 50+ diverse community participants.</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Right Column: Education, Awards, Studio Skills, Selected Works -->
+            <div class="right-col">
+
+                <!-- Education -->
+                <div class="section-block">
+                    <h2 class="section-title">Education</h2>
+                    <div class="edu-degree">Bachelor of Fine Arts (BFA)</div>
+                    <div class="edu-inst">Virginia Commonwealth University</div>
+                    <div class="edu-meta">Major: <strong>Kinetic Imaging</strong><br>
+                    Minor: <strong>Mixed & Immersive Reality</strong></div>
+                    <div class="edu-gpa">GPA: 3.86 / 4.00 (High Honors)</div>
+                    <div class="edu-meta" style="margin-top:0.3rem; font-size:7.8pt;">Graduation: 2025 • Richmond, VA, USA</div>
+                </div>
+
+                <!-- Honors & Awards -->
+                <div class="section-block">
+                    <h2 class="section-title">Awards & Honors</h2>
+                    <div class="award-item">
+                        <div class="award-name">International Cultural Impact Award</div>
+                        <div class="award-date">VCU • Dec 2024</div>
+                        <div class="award-desc">Special recognition for bridging cross-cultural narratives through immersive creative practice.</div>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-name">Junior Excellence Award</div>
+                        <div class="award-date">VCU Kinetic Imaging • Dec 2023</div>
+                        <div class="award-desc">Awarded for outstanding artistic vision, academic merit, and technical experimentation.</div>
+                    </div>
+                </div>
+
+                <!-- Technical & Pedagogical Competencies -->
+                <div class="section-block">
+                    <h2 class="section-title">Technical Expertise</h2>
+                    
+                    <div class="skill-group">
+                        <div class="skill-group-title">Creative Tech & Coding</div>
+                        <div class="skill-items">TouchDesigner, Raspberry Pi, Arduino (GRBL), Interactive Sensor Systems, Projection Mapping, AR/VR.</div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Digital Fabrication</div>
+                        <div class="skill-items">3D Modeling & 3D Printing (FDM/Resin), Photogrammetry & 3D Scanning, Laser Cutting, CNC, AxiDraw Pen Plotting.</div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Time-Based & Digital Media</div>
+                        <div class="skill-items">Adobe Premiere Pro, After Effects, Photoshop, Audition, Sound Design, 2D Morph Animation, Multi-Camera Setup.</div>
+                    </div>
+
+                    <div class="skill-group">
+                        <div class="skill-group-title">Pedagogical Strengths</div>
+                        <div class="skill-items">Studio Critique, Studio Safety & Machine Maintenance, Curriculum/Workshop Design, Interdisciplinary Mentorship.</div>
+                    </div>
+                </div>
+
+                <!-- Selected Artistic Works -->
+                <div class="section-block">
+                    <h2 class="section-title">Selected Works</h2>
+                    <div class="work-item">
+                        <div class="work-title">compUsition (Senior Capstone)</div>
+                        <div class="work-desc">Generative video composition exploring visual rhythm & balance.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">Compromise</div>
+                        <div class="work-desc">Interactive installation interrogating digital-physical touch.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">I am (still) here</div>
+                        <div class="work-desc">Augmented reality & animation on non-linear spatial memory.</div>
+                    </div>
+                    <div class="work-item">
+                        <div class="work-title">Void Tinted Glasses</div>
+                        <div class="work-desc">Experimental video & post-production spatial sound design.</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
