@@ -45,6 +45,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Compromise",
             description: "Documentation of the artwork exploring physical-digital interaction and sensory space.",
             imageUrl: "assets/compromise_real.png",
+            videoUrl: "assets/compromise_video.mp4",
+            stills: [],
             domain: "immersive"
         },
         {
@@ -52,6 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Void Tinted Glasses",
             description: "An experimental video piece emphasizing post-production sound design and visual editing.",
             imageUrl: "assets/void_real.png",
+            videoUrl: "",
+            stills: [],
             domain: "animation"
         },
         {
@@ -59,6 +63,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Consumption",
             description: "Video / Performance art exploring concepts that transcend verbal explanation.",
             imageUrl: "assets/simulation_real.png",
+            videoUrl: "assets/simulation_video.mp4",
+            stills: [],
             domain: "immersive"
         },
         {
@@ -66,6 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Imitation",
             description: "A video piece exploring our companionship with non-human nature.",
             imageUrl: "assets/3dfinal_real.png",
+            videoUrl: "",
+            stills: [],
             domain: "animation"
         },
         {
@@ -73,6 +81,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "I am (still) here",
             description: "Augmented Reality / 2D Animation exploring the non-linearity of time and memory in space.",
             imageUrl: "assets/iamhere_real.png",
+            videoUrl: "assets/iamhere_video.mp4",
+            stills: [],
             domain: "animation"
         },
         {
@@ -80,6 +90,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Waves",
             description: "2D Morph Animation exploring sleep-deprived thoughts of curls going down a drain and their reflection on the water.",
             imageUrl: "assets/waves_real.png",
+            videoUrl: "assets/waves_video.mp4",
+            stills: [],
             domain: "animation"
         },
         {
@@ -87,6 +99,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "I am here (A Walk Through Memory Lane)",
             description: "Augmented Reality installation exploring how memories exist as light particles.",
             imageUrl: "assets/memorylane_real.png",
+            videoUrl: "",
+            stills: [],
             domain: "immersive"
         },
         {
@@ -94,6 +108,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "Interviews & Press",
             description: "A collection of interviews discussing my artistic practice, teaching philosophy, and the intersection of physical and digital art.",
             imageUrl: "assets/interviews_real.png",
+            videoUrl: "",
+            stills: [],
             domain: "press"
         },
         {
@@ -101,6 +117,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "3D Printing Experiments",
             description: "Explorations into physical fabrication and rapid prototyping.",
             imageUrl: "assets/3dprinting_real.jpg",
+            videoUrl: "",
+            stills: [],
             domain: "fabrication"
         },
         {
@@ -108,6 +126,8 @@ document.addEventListener("DOMContentLoaded", () => {
             title: "3D Scanning Archives",
             description: "Digitizing physical space and artifacts via photogrammetry and scanning.",
             imageUrl: "assets/3dscanning_real.jpg",
+            videoUrl: "",
+            stills: [],
             domain: "fabrication"
         }
     ];
@@ -127,6 +147,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className = "project-card hover-target";
         card.style.display = "block";
         card.style.textDecoration = "none";
+        card.style.cursor = "pointer";
         
         let stillsHtml = '';
         if (proj.stills && proj.stills.length > 0) {
@@ -137,8 +158,11 @@ document.addEventListener("DOMContentLoaded", () => {
             stillsHtml += '</div>';
         }
 
+        const videoBadge = proj.videoUrl ? `<span style="position: absolute; top: 12px; right: 12px; background: rgba(28, 13, 226, 0.9); color: white; padding: 4px 8px; border-radius: 4px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; z-index: 2;">▶ VIDEO</span>` : '';
+
         card.innerHTML = `
-            <div class="project-img-wrapper">
+            <div class="project-img-wrapper" style="position: relative;">
+                ${videoBadge}
                 <img src="${proj.imageUrl}" alt="${proj.title}" class="main-img">
             </div>
             ${stillsHtml}
@@ -147,6 +171,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p>${proj.description}</p>
             </div>
         `;
+
+        card.addEventListener('click', (e) => {
+            window.location.href = `project.html?id=${proj.id}`;
+        });
         
         galleries[proj.domain].appendChild(card);
     });

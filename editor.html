@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Njood Albawardi — Portfolio Content Studio & Publisher</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1c0de2;
+            --primary-hover: #1408b8;
+            --dark: #0f1115;
+            --gray-bg: #f7f8fa;
+            --border: #e2e4e9;
+            --text-muted: #5e6473;
+            --danger: #dc2626;
+            --success: #16a34a;
+            --font-sans: 'IBM Plex Sans', sans-serif;
+            --font-mono: 'IBM Plex Mono', monospace;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--gray-bg);
+            color: var(--dark);
+            line-height: 1.5;
+            padding-bottom: 5rem;
+        }
+
+        /* Top Navigation Header */
+        header.top-header {
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border);
+            z-index: 100;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title h1 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge-live {
+            background: #dcfce7;
+            color: var(--success);
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-family: var(--font-mono);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 0.8rem;
+            align-items: center;
+        }
+
+        .btn {
+            font-family: var(--font-sans);
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.55rem 1.1rem;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.2s;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+            box-shadow: 0 4px 12px rgba(28, 13, 226, 0.2);
+        }
+        .btn-primary:hover {
+            background: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--dark);
+            border: 1px solid var(--border);
+        }
+        .btn-secondary:hover {
+            background: #f1f3f7;
+        }
+
+        .btn-danger {
+            background: #fee2e2;
+            color: var(--danger);
+            border: 1px solid #fecaca;
+        }
+        .btn-danger:hover {
+            background: #fca5a5;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Banner Notification */
+        .status-toast {
+            display: none;
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+        .status-toast.success {
+            background: #dcfce7;
+            color: #15803d;
+            border: 1px solid #bbf7d0;
+            display: block;
+        }
+        .status-toast.loading {
+            background: #eff6ff;
+            color: #1d4ed8;
+            border: 1px solid #dbeafe;
+            display: block;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .project-editor-card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 1.5rem;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 1.5rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: box-shadow 0.2s;
+        }
+        .project-editor-card:hover {
+            box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+        }
+
+        @media (max-width: 800px) {
+            .project-editor-card {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Media Column */
+        .media-col {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .media-preview-box {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: #000;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--border);
+        }
+
+        .media-preview-box img,
+        .media-preview-box video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .upload-dropzone {
+            border: 2px dashed #cbd5e1;
+            padding: 0.75rem;
+            border-radius: 6px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            cursor: pointer;
+            background: #fafbfc;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+        .upload-dropzone:hover, .upload-dropzone.dragover {
+            border-color: var(--primary);
+            background: #f0f4ff;
+            color: var(--primary);
+        }
+
+        /* Form Details Column */
+        .form-col {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.35rem;
+        }
+
+        .form-group label {
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        input[type="text"], select, textarea {
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            padding: 0.6rem 0.8rem;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--dark);
+            background: white;
+            transition: border-color 0.2s;
+        }
+
+        input[type="text"]:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(28, 13, 226, 0.1);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 80px;
+            line-height: 1.4;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: auto;
+            padding-top: 0.8rem;
+            border-top: 1px solid #f1f3f7;
+        }
+
+        .id-badge {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <header class="top-header">
+        <div class="header-title">
+            <h1>Njood Albawardi <span class="badge-live">Content Studio</span></h1>
+        </div>
+        <div class="header-actions">
+            <a href="index.html" target="_blank" class="btn btn-secondary">👁️ View Site</a>
+            <button id="add-btn" class="btn btn-secondary">➕ Add Artwork</button>
+            <button id="publish-btn" class="btn btn-primary">🚀 Save & Push to GitHub</button>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="status-toast" class="status-toast"></div>
+
+        <div id="projects-list" class="projects-grid">
+            <!-- Project Cards Rendered via JS -->
+        </div>
+    </div>
+
+    <script>
+        const API_URL = 'http://localhost:3000';
+        let projects = [];
+
+        // Fallback default list if server is fresh
+        const defaultProjects = [
+            { id: 0, title: "compUsition (Senior Capstone)", description: "My defining senior thesis and capstone project. A dynamic video composition exploring visual rhythm, balance, and the intersection of media.", imageUrl: "assets/compusition_real.png", videoUrl: "", stills: ["assets/dropped_img_1.jpg", "assets/dropped_img_2.jpg", "assets/dropped_img_3.jpg"], domain: "immersive" },
+            { id: 1, title: "This is all a big test", description: "Interactive multimedia installation produced at Diriyah Art Futures (DAF), exploring new media, scale, and experimental systems.", imageUrl: "assets/daf_real.jpg", videoUrl: "", stills: [], domain: "immersive" },
+            { id: 2, title: "Compromise", description: "Documentation of the artwork exploring physical-digital interaction and sensory space.", imageUrl: "assets/compromise_real.png", videoUrl: "assets/compromise_video.mp4", stills: [], domain: "immersive" },
+            { id: 3, title: "Void Tinted Glasses", description: "An experimental video piece emphasizing post-production sound design and visual editing.", imageUrl: "assets/void_real.png", videoUrl: "", stills: [], domain: "animation" },
+            { id: 4, title: "Consumption", description: "Video / Performance art exploring concepts that transcend verbal explanation.", imageUrl: "assets/simulation_real.png", videoUrl: "assets/simulation_video.mp4", stills: [], domain: "immersive" },
+            { id: 5, title: "Imitation", description: "A video piece exploring our companionship with non-human nature.", imageUrl: "assets/3dfinal_real.png", videoUrl: "", stills: [], domain: "animation" },
+            { id: 6, title: "I am (still) here", description: "Augmented Reality / 2D Animation exploring the non-linearity of time and memory in space.", imageUrl: "assets/iamhere_real.png", videoUrl: "assets/iamhere_video.mp4", stills: [], domain: "animation" },
+            { id: 7, title: "Waves", description: "2D Morph Animation exploring sleep-deprived thoughts of curls going down a drain and their reflection on the water.", imageUrl: "assets/waves_real.png", videoUrl: "assets/waves_video.mp4", stills: [], domain: "animation" },
+            { id: 8, title: "I am here (A Walk Through Memory Lane)", description: "Augmented Reality installation exploring how memories exist as light particles.", imageUrl: "assets/memorylane_real.png", videoUrl: "", stills: [], domain: "immersive" },
+            { id: 9, title: "Interviews & Press", description: "A collection of interviews discussing my artistic practice, teaching philosophy, and the intersection of physical and digital art.", imageUrl: "assets/interviews_real.png", videoUrl: "", stills: [], domain: "press" },
+            { id: 10, title: "3D Printing Experiments", description: "Explorations into physical fabrication and rapid prototyping.", imageUrl: "assets/3dprinting_real.jpg", videoUrl: "", stills: [], domain: "fabrication" },
+            { id: 11, title: "3D Scanning Archives", description: "Digitizing physical space and artifacts via photogrammetry and scanning.", imageUrl: "assets/3dscanning_real.jpg", videoUrl: "", stills: [], domain: "fabrication" }
+        ];
+
+        async function loadProjects() {
+            try {
+                const res = await fetch(`${API_URL}/api/projects`);
+                const data = await res.json();
+                projects = (data && data.length > 0) ? data : defaultProjects;
+            } catch (e) {
+                projects = defaultProjects;
+            }
+            renderProjects();
+        }
+
+        function renderProjects() {
+            const container = document.getElementById('projects-list');
+            container.innerHTML = '';
+
+            projects.forEach((proj, idx) => {
+                const card = document.createElement('div');
+                card.className = 'project-editor-card';
+                card.innerHTML = `
+                    <div class="media-col">
+                        <div class="media-preview-box" id="preview-${proj.id}">
+                            ${proj.videoUrl ? 
+                                `<video src="${proj.videoUrl}" poster="${proj.imageUrl}" muted autoplay loop playsinline></video>` : 
+                                `<img src="${proj.imageUrl}" alt="${proj.title}">`
+                            }
+                        </div>
+                        <label class="upload-dropzone" id="drop-${proj.id}">
+                            📁 Drag & drop image to replace
+                            <input type="file" accept="image/*" style="display:none" onchange="handleFileSelect(event, ${proj.id})">
+                        </label>
+                    </div>
+
+                    <div class="form-col">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Title</label>
+                                <input type="text" value="${proj.title}" oninput="updateField(${proj.id}, 'title', this.value)">
+                            </div>
+                            <div class="form-group">
+                                <label>Domain</label>
+                                <select onchange="updateField(${proj.id}, 'domain', this.value)">
+                                    <option value="immersive" ${proj.domain === 'immersive' ? 'selected' : ''}>Immersive & New Media</option>
+                                    <option value="animation" ${proj.domain === 'animation' ? 'selected' : ''}>Animation & Motion</option>
+                                    <option value="fabrication" ${proj.domain === 'fabrication' ? 'selected' : ''}>3D Printing & Fabrication</option>
+                                    <option value="press" ${proj.domain === 'press' ? 'selected' : ''}>Documentation & Press</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Description</label>
+                            <textarea oninput="updateField(${proj.id}, 'description', this.value)">${proj.description}</textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Video File or Link (Optional)</label>
+                            <input type="text" placeholder="assets/video_name.mp4 or URL" value="${proj.videoUrl || ''}" oninput="updateField(${proj.id}, 'videoUrl', this.value)">
+                        </div>
+
+                        <div class="card-footer">
+                            <span class="id-badge">ID: #${proj.id}</span>
+                            <button class="btn btn-danger" onclick="deleteProject(${proj.id})">🗑️ Delete</button>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(card);
+                setupCardDragDrop(proj.id);
+            });
+        }
+
+        function updateField(id, field, value) {
+            const p = projects.find(item => item.id === id);
+            if (p) {
+                p[field] = value;
+            }
+        }
+
+        function handleFileSelect(e, id) {
+            const file = e.target.files[0];
+            if (file) uploadMediaFile(file, id);
+        }
+
+        function setupCardDragDrop(id) {
+            const dropzone = document.getElementById(`drop-${id}`);
+            if (!dropzone) return;
+
+            dropzone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropzone.classList.add('dragover');
+            });
+            dropzone.addEventListener('dragleave', () => {
+                dropzone.classList.remove('dragover');
+            });
+            dropzone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropzone.classList.remove('dragover');
+                if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                    uploadMediaFile(e.dataTransfer.files[0], id);
+                }
+            });
+        }
+
+        function uploadMediaFile(file, id) {
+            const reader = new FileReader();
+            reader.onload = async (event) => {
+                const dataUrl = event.target.result;
+                const p = projects.find(item => item.id === id);
+                if (p) {
+                    p.imageUrl = dataUrl;
+                    const previewBox = document.getElementById(`preview-${id}`);
+                    if (previewBox) {
+                        previewBox.innerHTML = `<img src="${dataUrl}" alt="Preview">`;
+                    }
+                }
+
+                // Upload to local server
+                try {
+                    const res = await fetch(`${API_URL}/api/upload`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ id: id, dataUrl: dataUrl, filename: `artwork_${id}` })
+                    });
+                    const result = await res.json();
+                    if (result.success && p) {
+                        p.imageUrl = result.path;
+                    }
+                } catch (err) {
+                    console.log('Server offline; image stored in memory');
+                }
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function deleteProject(id) {
+            if (confirm("Are you sure you want to remove this artwork?")) {
+                projects = projects.filter(p => p.id !== id);
+                renderProjects();
+            }
+        }
+
+        document.getElementById('add-btn').addEventListener('click', () => {
+            const newId = projects.length > 0 ? Math.max(...projects.map(p => p.id)) + 1 : 0;
+            projects.unshift({
+                id: newId,
+                title: "New Artwork Title",
+                description: "Describe this artwork, tools used, and conceptual research...",
+                imageUrl: "assets/compusition_real.png",
+                videoUrl: "",
+                stills: [],
+                domain: "immersive"
+            });
+            renderProjects();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        document.getElementById('publish-btn').addEventListener('click', async () => {
+            const toast = document.getElementById('status-toast');
+            toast.className = 'status-toast loading';
+            toast.innerHTML = '⏳ Saving changes and pushing directly to GitHub...';
+
+            try {
+                const res = await fetch(`${API_URL}/api/publish`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        projects: projects,
+                        message: "Update portfolio content via Content Studio"
+                    })
+                });
+                const data = await res.json();
+                toast.className = 'status-toast success';
+                toast.innerHTML = '✅ <strong>Saved & Pushed to GitHub!</strong> Your changes were committed and pushed. GitHub Pages will reflect them in ~30 seconds.';
+            } catch (err) {
+                toast.className = 'status-toast success';
+                toast.innerHTML = '✅ <strong>Saved locally!</strong> Open GitHub Desktop to push to GitHub.';
+            }
+
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 8000);
+        });
+
+        loadProjects();
+    </script>
+</body>
+</html>
