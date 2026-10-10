@@ -242,21 +242,22 @@ body.hovering .cursor-follower {
 }
 
 .domain-section {
-    margin-bottom: 10rem;
-    padding: 5rem;
-    background: #141416;
-    border: 1px solid rgba(255,255,255,0.05);
-    border-radius: 12px;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+    margin-bottom: 8rem;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
 }
 
 .domain-title {
-    font-size: 2rem;
-    color: #f4f4f5;
-    margin-bottom: 4rem;
+    font-size: 2.2rem;
+    color: #0f0f11;
+    margin-bottom: 3.5rem;
     display: inline-block;
     border-bottom: 4px solid var(--accent-color);
     padding-bottom: 0.5rem;
+    text-transform: uppercase;
 }
 
 /* Masonry Gallery */
@@ -305,15 +306,16 @@ body.hovering .cursor-follower {
 
 .project-info h3 {
     font-family: 'SOAP', sans-serif;
-    font-size: 1.5rem;
-    color: var(--text-color);
+    font-size: 1.6rem;
+    color: #0f0f11;
     margin-bottom: 0.5rem;
     text-transform: uppercase;
+    letter-spacing: -0.5px;
 }
 
 .project-info p {
-    font-size: 0.95rem;
-    color: #606060;
+    font-size: 1rem;
+    color: #4b5262;
     line-height: 1.6;
 }
 
