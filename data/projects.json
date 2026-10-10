@@ -52,7 +52,7 @@
     "id": 4,
     "title": "Consumption",
     "description": "Video / Performance art exploring concepts that transcend verbal explanation.",
-    "imageUrl": "assets/simulation_real.png",
+    "imageUrl": "assets/consumption_real.png",
     "videoUrl": "assets/consumption.mp4",
     "stills": [],
     "domain": "immersive"
@@ -115,7 +115,7 @@
     "id": 11,
     "title": "3D Scanning Archives",
     "description": "Digitizing physical space and artifacts via photogrammetry and scanning.",
-    "imageUrl": "assets/artwork_11.png",
+    "imageUrl": "assets/3dscan_real.png",
     "videoUrl": "assets/3dscan_video.mp4",
     "stills": [],
     "domain": "fabrication"

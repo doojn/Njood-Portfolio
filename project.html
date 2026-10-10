@@ -19,12 +19,20 @@
             --font-primary: 'Roboto', 'IBM Plex Sans', sans-serif;
         }
 
+        *, *::before, *::after {
+            cursor: auto !important;
+        }
+
         body {
             background-color: var(--yt-bg);
             color: var(--yt-text);
             font-family: var(--font-primary);
             margin: 0;
-            cursor: default; /* Normal cursor for the youtube clone */
+            cursor: auto !important;
+        }
+
+        a, button, [role="button"], input, select, .yt-nav *, .hover-target, video, .related-video {
+            cursor: pointer !important;
         }
 
         /* Navbar */

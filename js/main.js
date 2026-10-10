@@ -27,19 +27,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const projects = [
         {
                 "id": 12,
-                "title": "Composition (BFA Capstone #2) ",
+                "title": "Composition (BFA Capstone #2)",
                 "description": "My second senior thesis and capstone project. A dynamic video composition exploring identity, visual rhythm, balance, and the intersection of animation and mediums.\n\nMade with Laser engraving, Cricut Air, Digital Embroidery Machine, AxiDraw Pen plotter machine.",
                 "imageUrl": "assets/compusition_real.png",
-                "videoUrl": "assets/Composition_Albawardi.mp4",
+                "videoUrl": "assets/composition_video.mp4",
                 "stills": [],
                 "domain": "immersive"
         },
         {
                 "id": 0,
                 "title": "comp(U)s(I)tion (BFA Capstone #1)",
-                "description": "My defining senior thesis and capstone project. \n\nPLA Filament, FDM 3D Printing, Camera, Electronics, Touchdesigner. \n\nExamines the misconception that machines exist separately from humanity. Comp(u)s(i)tion highlights how machines are shaped by human biases, beliefs, and systems, making them inseparable from the human experience. Through interactive engagement, the piece reflects on the ways people influence and are influenced by technology. Rather than positioning machines as autonomous entities, the work presents them as extensions of human interactions. By making audience presence an integral part of the piece, it encourages reflection on agency, perception, and the evolving dynamic between humanity and technology. Technology is not a distant or fixed force—it is built through human conversations and choices, and just as it is made, it can be changed for the better.\n",
+                "description": "My defining senior thesis and capstone project.\n\nPLA Filament, FDM 3D Printing, Camera, Electronics, Touchdesigner.\n\nExamines the misconception that machines exist separately from humanity. Comp(u)s(i)tion highlights how machines are shaped by human biases, beliefs, and systems, making them inseparable from the human experience. Through interactive engagement, the piece reflects on the ways people influence and are influenced by technology. Rather than positioning machines as autonomous entities, the work presents them as extensions of human interactions. By making audience presence an integral part of the piece, it encourages reflection on agency, perception, and the evolving dynamic between humanity and technology. Technology is not a distant or fixed force—it is built through human conversations and choices, and just as it is made, it can be changed for the better.",
                 "imageUrl": "assets/artwork_0.jpg",
-                "videoUrl": "assets/comp(U)s(I)tion",
+                "videoUrl": "assets/compusition_video.mp4",
                 "stills": [
                         "assets/dropped_img_1.jpg",
                         "assets/dropped_img_2.jpg",
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "title": "Void Tinted Glasses",
                 "description": "Mixed Media Short film\n\nDirected and edited by Njood Albawardi",
                 "imageUrl": "assets/void_real.png",
-                "videoUrl": "assets/Void Tinted Glasses.mp4",
+                "videoUrl": "assets/void_video.mp4",
                 "stills": [],
                 "domain": "animation"
         },
@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 "id": 4,
                 "title": "Consumption",
                 "description": "Video / Performance art exploring concepts that transcend verbal explanation.",
-                "imageUrl": "assets/simulation_real.png",
+                "imageUrl": "assets/consumption_real.png",
                 "videoUrl": "assets/consumption.mp4",
                 "stills": [],
                 "domain": "immersive"
@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
         {
                 "id": 9,
                 "title": "Interviews & Press",
-                "description": "https://www.spa.gov.sa/en/N2657240 \n\nhttps://www.ksaart.com/continuum-26-opens-in-riyadh-with-a-new-generation-of-new-media-artists/ \n\nhttps://artmena.com/news/continuum-26-diriyah-art-futures \n\n",
+                "description": "https://www.spa.gov.sa/en/N2657240 \n\nhttps://www.ksaart.com/continuum-26-opens-in-riyadh-with-a-new-generation-of-new-media-artists/ \n\nhttps://artmena.com/news/continuum-26-diriyah-art-futures",
                 "imageUrl": "assets/artwork_9.png",
                 "videoUrl": "",
                 "stills": [],
@@ -141,8 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 "id": 11,
                 "title": "3D Scanning Archives",
                 "description": "Digitizing physical space and artifacts via photogrammetry and scanning.",
-                "imageUrl": "assets/artwork_11.png",
-                "videoUrl": "",
+                "imageUrl": "assets/3dscan_real.png",
+                "videoUrl": "assets/3dscan_video.mp4",
                 "stills": [],
                 "domain": "fabrication"
         }
@@ -225,14 +225,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const setupDragAndDrop = () => {
         const imageWrappers = document.querySelectorAll('.project-img-wrapper img, .stills-container img');
         
+        // Clear any stale local overrides so official project data always renders correctly
+        try {
+            Object.keys(localStorage).forEach(k => {
+                if (k.startsWith('custom_img_')) localStorage.removeItem(k);
+            });
+        } catch(e) {}
+
         imageWrappers.forEach((img, index) => {
             const dropZone = img.parentElement;
-            
-            // Check localStorage for previously saved dropped images
-            const savedImage = localStorage.getItem(`custom_img_${index}`);
-            if (savedImage) {
-                img.src = savedImage;
-            }
 
             dropZone.addEventListener('dragover', (e) => {
                 e.preventDefault();
